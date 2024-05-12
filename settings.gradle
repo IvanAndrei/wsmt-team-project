@@ -1,0 +1,9 @@
+rootProject.name = 'restaurant-management'
+include 'restaurant-mng'
+include 'common'
+include 'order-management'
+include 'consumer-management'
+include 'kitchen-management'
+include 'restaurant-mng'
+include 'api-gateway'
+

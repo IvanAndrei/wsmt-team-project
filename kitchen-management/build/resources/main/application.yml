@@ -1,0 +1,30 @@
+server:
+  port: 8082
+spring:
+  application:
+    name: kitchen-management
+  profiles:
+    active: local
+  datasource:
+    url: jdbc:postgresql://localhost:5432/kitchen-management
+    username: postgres
+    password: postgres
+    hikari:
+      connection-timeout: 10000
+      validation-timeout: 10000
+      idle-timeout: 10000
+      leak-detection-threshold: 10000
+      max-lifetime: 3600000
+      max-pool-size: 2
+      min-idle: 1000
+  jpa:
+    hibernate:
+      ddl-auto: create
+    database: postgresql
+    show-sql: true
+#RabbitMq
+# rabbitmq:
+#  host: localhost
+#  port: 5672
+#  username: guest
+#  password: guest
