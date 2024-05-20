@@ -17,7 +17,7 @@ import javax.validation.Valid;
 @CrossOrigin
 public class RestaurantApi {
 
-  public static final String RESTAURANT_MANAGEMENT = "/wsmt/restaurant-management/";
+  public static final String RESTAURANT_MANAGEMENT = "/restaurant-management/";
   private final RestaurantService restaurantService;
 
   @GetMapping(RESTAURANT_MANAGEMENT + "{restaurantId}")
