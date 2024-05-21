@@ -8,10 +8,12 @@
     import order.domain.OrderState;
     import order.dto.OrderMessage;
     import order.dto.UpdateOrderRequestDto;
+    import org.springframework.amqp.core.MessageDeliveryMode;
     import org.springframework.amqp.rabbit.annotation.RabbitListener;
     import org.springframework.amqp.rabbit.core.RabbitTemplate;
     import org.springframework.stereotype.Service;
 
+    import java.util.Random;
     import java.util.concurrent.TimeUnit;
 
     @Service
@@ -32,26 +34,34 @@
             UpdateOrderRequestDto updateOrderRequestDto = UpdateOrderRequestDto.builder().state(OrderState.APPROVED).build();
             log.info("Feign order client called");
             try {
+                Random rand = new Random();
+                int randomNumber = rand.nextInt(10) + 1;
+                if(randomNumber<5)
+                    throw new Exception("test");
                 TimeUnit.SECONDS.sleep(10);
+
                 orderClient.updateOrder(orderMessage.getId(), updateOrderRequestDto);
                 log.info("Operation succeeded");
             } catch (Exception e) {
                 log.error("Error updating order: {}", e.getMessage());
                 log.info("Sending message to DLQ for further processing");
-                rabbitTemplate.convertAndSend(DLX_NAME, DLQ_NAME, orderMessage);
+                rabbitTemplate.convertAndSend(DLX_NAME, DLQ_NAME, orderMessage, message -> {
+                    message.getMessageProperties().setDeliveryMode(MessageDeliveryMode.PERSISTENT);
+                    return message;
+                });
+                //rabbitTemplate.convertAndSend(DLX_NAME, DLQ_NAME, orderMessage);
             }
 
         }
-
-      //  @RabbitListener(queues = DLQ_NAME)
-       // public void processDLQMessage(OrderMessage orderMessage) {
-        //    log.info("Received message from DLQ: {}", orderMessage);
-          //  // Process the message from the DLQ (e.g., retry processing)
-            //try {
-         //       updateOrder(orderMessage); // Retry processing the message
-          //  } catch (Exception e) {
-           //     log.error("Error processing message from DLQ: {}", e.getMessage());
+        @Override
+        public void processDLQMessage(OrderMessage orderMessage) {
+            log.info("Received message from DLQ: {}", orderMessage);
+            // Process the message from the DLQ (e.g., retry processing)
+            try {
+                updateOrder(orderMessage); // Retry processing the message
+            } catch (Exception e) {
+                log.error("Error processing message from DLQ: {}", e.getMessage());
                 // Handle the error or log it accordingly
-           // }
-        //}
+            }
+        }
     }

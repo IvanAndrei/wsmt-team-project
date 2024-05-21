@@ -3,6 +3,7 @@ package order.messaging;
 import lombok.AllArgsConstructor;
 import order.domain.Order;
 import order.dto.OrderMessage;
+import org.springframework.amqp.core.MessageDeliveryMode;
 import org.springframework.amqp.rabbit.core.RabbitTemplate;
 import org.springframework.stereotype.Service;
 
@@ -17,6 +18,10 @@ public class OrderMessageProducer {
     orderMessage.setId(order.getId());
     orderMessage.setName("first order");
     orderMessage.setOrderState(order.getState());
-    rabbitTemplate.convertAndSend("orderQueue", orderMessage);
+    rabbitTemplate.convertAndSend("orderQueue", orderMessage, message -> {
+      message.getMessageProperties().setDeliveryMode(MessageDeliveryMode.PERSISTENT);
+      return message;
+    });
+    //rabbitTemplate.convertAndSend("orderQueue", orderMessage);
   }
 }

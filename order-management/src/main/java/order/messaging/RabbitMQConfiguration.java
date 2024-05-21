@@ -1,10 +1,7 @@
 package order.messaging;
 
 
-import org.springframework.amqp.core.Binding;
-import org.springframework.amqp.core.BindingBuilder;
-import org.springframework.amqp.core.DirectExchange;
-import org.springframework.amqp.core.Queue;
+import org.springframework.amqp.core.*;
 import org.springframework.amqp.rabbit.config.SimpleRabbitListenerContainerFactory;
 import org.springframework.amqp.rabbit.connection.ConnectionFactory;
 import org.springframework.amqp.rabbit.core.RabbitTemplate;
@@ -30,8 +27,10 @@ public class RabbitMQConfiguration {
     // Create DLQ
     @Bean
     public Queue orderQueueDLQ() {
-        return new Queue(DLQ_NAME);
+        return QueueBuilder.durable(DLQ_NAME).build();
+        //return new Queue(DLQ_NAME);
     }
+
 
     // Bind DLQ to DLX with a routing key
     @Bean
@@ -44,7 +43,8 @@ public class RabbitMQConfiguration {
     //create queue
     @Bean
     public Queue orderQueue () {
-        return new Queue("orderQueue");
+        return QueueBuilder.durable("orderQueue").build();
+        //return new Queue("orderQueue");
     }
 
     //convert message

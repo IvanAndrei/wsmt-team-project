@@ -17,4 +17,8 @@ public class OrderMessageConsumer {
   public void consumeMessage(OrderMessage orderMessage) {
     kitchenService.updateOrder(orderMessage);
   }
+  @RabbitListener(queues = "orderQueueDLQ")
+  public void consumeMessageDLQ(OrderMessage orderMessage) {
+    kitchenService.processDLQMessage(orderMessage);
+  }
 }
