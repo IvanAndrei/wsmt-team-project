@@ -22,9 +22,24 @@ spring:
       ddl-auto: create
     database: postgresql
     show-sql: true
-  #RabbitMq
-#rabbitmq:
-#  host: localhost
-#  port: 5672
-#  username: guest
-#  password: guest
+  rabbitmq:
+    host: localhost
+    port: 5671
+    username: guest
+    password: guest
+    virtual-host: /
+    connection-timeout: 60000 # in milliseconds
+    requested-heartbeat: 30 # in seconds
+    ssl:
+      enabled: true
+      algorithm: tlsv1.2
+      trust-store-password: wsmttt
+      key-store-password: wsmttt
+      key-store: classpath:keystore.p12
+
+  jmx:
+    enabled: true
+
+logging:
+  level:
+    ROOT: DEBUG

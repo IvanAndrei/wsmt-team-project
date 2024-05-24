@@ -1,21 +1,26 @@
-
 services:
-#  restaurant-mng:
-#    build:
-#      context: ./
-#    container_name: restaurant-mng
-#    ports:
-#      - "1241:1241"
-#    environment:
-#      - SPRING_PROFILES_ACTIVE=local
-##    networks:
-##      - postgres
+  #  restaurant-mng:
+  #    build:
+  #      context: ./
+  #    container_name: restaurant-mng
+  #    ports:
+  #      - "1241:1241"
+  #    environment:
+  #      - SPRING_PROFILES_ACTIVE=local
+  ##    networks:
+  ##      - postgres
 
   rabbimq:
-    image: rabbitmq:3-management
+    image: rabbitmq:management
     container_name: rabbitmq
     ports:
-      - 5672:5672
+      - 5671:5671
+#      - 5672:5672
       - 15672:15672
-#    networks:
-#      - postgres
+    volumes:
+      - /etc/rabbitmq/rabbitmq.conf
+      - /etc/rabbitmq/certs
+#      - /C:/Users/andre/AppData/Roaming/RabbitMQ/etc/rabbitmq/certs
+
+    logging:
+      driver: "json-file"

@@ -28,3 +28,6 @@ spring:
     port: 5672
     username: guest
     password: guest
+    virtual-host: /
+    connection-timeout: 60000 # in milliseconds
+    requested-heartbeat: 30 # in seconds
