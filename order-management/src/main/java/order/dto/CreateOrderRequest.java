@@ -1,7 +1,7 @@
 package order.dto;
 
-import common.Address;
 import lombok.Data;
+import order.domain.Address;
 import order.domain.OrderState;
 
 import java.time.LocalDateTime;

@@ -1,4 +1,4 @@
-package common.exception;
+package order.service.exception;
 
 public class FeignException extends RuntimeException {
 

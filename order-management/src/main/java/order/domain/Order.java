@@ -1,6 +1,5 @@
 package order.domain;
 
-import common.BaseEntity;
 import jakarta.persistence.*;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;

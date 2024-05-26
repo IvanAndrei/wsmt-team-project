@@ -1,7 +1,5 @@
 package cosumer.domain;
 
-import common.BaseEntity;
-import common.PersonName;
 import jakarta.persistence.*;
 import lombok.Data;
 

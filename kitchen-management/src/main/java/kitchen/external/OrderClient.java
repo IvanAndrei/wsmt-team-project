@@ -1,8 +1,8 @@
 package kitchen.external;
 
-import common.FeignErrorDecoder;
 import order.dto.OrderResponse;
 import order.dto.UpdateOrderRequestDto;
+import order.service.converter.FeignErrorDecoder;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PutMapping;

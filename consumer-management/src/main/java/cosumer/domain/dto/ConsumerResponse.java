@@ -1,7 +1,7 @@
 package cosumer.domain.dto;
 
 
-import common.PersonName;
+import cosumer.domain.PersonName;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;

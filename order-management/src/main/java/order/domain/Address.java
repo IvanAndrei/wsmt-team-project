@@ -1,4 +1,4 @@
-package common;
+package order.domain;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;

@@ -1,4 +1,4 @@
-package common;
+package cosumer.domain;
 
 import lombok.Data;
 

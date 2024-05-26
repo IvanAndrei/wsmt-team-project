@@ -1,13 +1,9 @@
-package restaurant.domain;
+package order.domain;
 
 import jakarta.persistence.Access;
 import jakarta.persistence.AccessType;
-import jakarta.persistence.ElementCollection;
 import jakarta.persistence.Embeddable;
 import lombok.*;
-
-import java.util.List;
-
 
 @Embeddable
 @Access(AccessType.FIELD)
@@ -16,8 +12,10 @@ import java.util.List;
 @Getter
 @Setter
 @EqualsAndHashCode
-public class RestaurantMenu {
+public class MenuItem {
 
-    @ElementCollection
-    private List<MenuItem> menuItems;
+  private String id;
+  private String name;
+  private double price;
+
 }

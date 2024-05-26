@@ -1,7 +1,7 @@
 package cosumer.service.impl;
 
-import common.PersonName;
 import cosumer.domain.Consumer;
+import cosumer.domain.PersonName;
 import cosumer.domain.dto.ConsumerResponse;
 import cosumer.repository.ConsumerRepository;
 import cosumer.service.ConsumerService;

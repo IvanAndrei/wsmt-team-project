@@ -1,6 +1,6 @@
 package order.service;
 
-import common.MenuItem;
+import order.domain.MenuItem;
 import order.domain.Order;
 import order.dto.CreateOrderRequest;
 import order.dto.OrderMessage;
@@ -8,7 +8,6 @@ import order.dto.OrderResponse;
 import order.dto.UpdateOrderRequestDto;
 
 import java.util.List;
-import java.util.Optional;
 
 public interface OrderService {
 

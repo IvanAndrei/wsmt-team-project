@@ -1,6 +1,5 @@
 package order.domain;
 
-import common.Address;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;

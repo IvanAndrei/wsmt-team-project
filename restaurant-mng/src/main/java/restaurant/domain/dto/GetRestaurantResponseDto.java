@@ -1,6 +1,5 @@
 package restaurant.domain.dto;
 
-import common.Address;
 import restaurant.domain.RestaurantMenu;
 import lombok.*;
 

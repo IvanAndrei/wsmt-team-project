@@ -1,9 +1,9 @@
-package common;
+package order.service.converter;
 
-import common.exception.FeignException;
 import feign.Response;
 import feign.codec.ErrorDecoder;
 import lombok.extern.slf4j.Slf4j;
+import order.service.exception.FeignException;
 
 @Slf4j
 public class FeignErrorDecoder implements ErrorDecoder {

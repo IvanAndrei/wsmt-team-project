@@ -36,7 +36,6 @@ task wrapper(type: Wrapper) {
     validateDistributionUrl = false
 }
 dependencies {
-    implementation project(":common")
     implementation project(":api-gateway")
     implementation project(":restaurant-mng")
     implementation project(":order-management")

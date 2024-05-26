@@ -1,7 +1,7 @@
 package cosumer.service.converter;
 
-import common.PersonName;
 import cosumer.domain.Consumer;
+import cosumer.domain.PersonName;
 import cosumer.domain.dto.ConsumerResponse;
 import lombok.experimental.UtilityClass;
 

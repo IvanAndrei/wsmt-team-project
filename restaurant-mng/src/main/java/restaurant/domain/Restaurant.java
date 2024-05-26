@@ -1,6 +1,5 @@
 package restaurant.domain;
 
-import common.BaseEntity;
 import jakarta.persistence.*;
 import lombok.*;
 

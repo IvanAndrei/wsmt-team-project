@@ -1,4 +1,4 @@
-package common;
+package restaurant.domain;
 
 import jakarta.persistence.Access;
 import jakarta.persistence.AccessType;

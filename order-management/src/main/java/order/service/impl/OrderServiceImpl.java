@@ -1,9 +1,9 @@
 package order.service.impl;
 
-import common.MenuItem;
 import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import order.domain.MenuItem;
 import order.domain.Order;
 import order.domain.OrderState;
 import order.dto.CreateOrderRequest;
@@ -18,7 +18,6 @@ import order.service.exception.OrderNotFoundException;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.Optional;
 
 @Service
 @Transactional

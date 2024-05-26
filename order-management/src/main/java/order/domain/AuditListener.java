@@ -1,4 +1,4 @@
-package common;
+package order.domain;
 
 import jakarta.persistence.PrePersist;
 import jakarta.persistence.PreUpdate;

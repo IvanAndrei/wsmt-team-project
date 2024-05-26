@@ -1,11 +1,8 @@
 package cosumer.service;
 
-import common.PersonName;
-import cosumer.domain.Consumer;
+import cosumer.domain.PersonName;
 import cosumer.domain.dto.ConsumerResponse;
 import org.springframework.transaction.annotation.Transactional;
-
-import java.util.Optional;
 
 public interface ConsumerService {
 
