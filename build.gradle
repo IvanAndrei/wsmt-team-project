@@ -18,7 +18,9 @@ allprojects {
             extendsFrom annotationProcessor
         }
     }
-
+    bootJar {
+        archivesBaseName = 'retaurant-management'
+    }
     repositories {
         mavenCentral()
         maven {

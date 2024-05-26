@@ -11,6 +11,30 @@ repositories {
     mavenCentral()
 }
 
+
+springBoot {
+    mainClass.set('kitchen.KitchenManagementApplication')
+}
+
+tasks.named('bootJar') {
+    doFirst {
+        println "bootJar mainClass: ${mainClass.get()}"
+    }
+    mainClass.set('kitchen.KitchenManagementApplication')
+    duplicatesStrategy = DuplicatesStrategy.EXCLUDE
+}
+
+tasks.named('bootRun') {
+    doFirst {
+        println "bootRun mainClass: ${mainClass.get()}"
+    }
+    mainClass.set('kitchen.KitchenManagementApplication')
+}
+
+task wrapper(type: Wrapper) {
+    gradleVersion = '8.7'
+    validateDistributionUrl = false
+}
 dependencies {
     implementation project(":common")
     implementation project(":api-gateway")
@@ -20,6 +44,10 @@ dependencies {
 
     testImplementation 'org.junit.jupiter:junit-jupiter-api:5.7.0'
     testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.7.0'
+}
+
+bootBuildImage {
+    imageName = 'ivan791/kitchen:latest'
 }
 
 test {

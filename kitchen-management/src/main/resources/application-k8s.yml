@@ -1,12 +1,17 @@
+order-service:
+  url: http://order
+kitchen-service:
+  url: http://kitchen
+
 server:
-  port: 8083
+  port: 8082
 spring:
   application:
-    name: consumer-management
+    name: kitchen-management
   profiles:
     active: local
   datasource:
-    url: jdbc:postgresql://localhost:5432/consumer-management
+    url: jdbc:postgresql://localhost:5432/kitchen-management
     username: postgres
     password: postgres
     hikari:
@@ -22,9 +27,9 @@ spring:
       ddl-auto: create
     database: postgresql
     show-sql: true
-  #RabbitMq
-  rabbitmq:
-    host: localhost
-    port: 5672
-    username: guest
-    password: guest
+#RabbitMq
+# rabbitmq:
+#  host: localhost
+#  port: 5672
+#  username: guest
+#  password: guest

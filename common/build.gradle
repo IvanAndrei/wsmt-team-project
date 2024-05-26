@@ -8,12 +8,32 @@ version '1.0-SNAPSHOT'
 repositories {
     mavenCentral()
 }
+tasks.named('bootJar') {
+    doFirst {
+        println "bootJar mainClass: ${mainClass.get()}"
+    }
+    mainClass.set('common.CommonApplication')
+    duplicatesStrategy = DuplicatesStrategy.EXCLUDE
+}
 
+tasks.named('bootRun') {
+    doFirst {
+        println "bootRun mainClass: ${mainClass.get()}"
+    }
+    mainClass.set('common.CommonApplication')
+}
+
+task wrapper(type: Wrapper) {
+    gradleVersion = '8.7'
+    validateDistributionUrl = false
+}
 dependencies {
     testImplementation 'org.junit.jupiter:junit-jupiter-api:5.7.0'
     testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.7.0'
 }
-
+bootBuildImage {
+    imageName = 'ivan791/common:latest'
+}
 test {
     useJUnitPlatform()
 }

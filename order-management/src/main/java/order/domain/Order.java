@@ -11,7 +11,7 @@ import lombok.Setter;
 @Access(AccessType.FIELD)
 @Getter
 @Setter
-@EqualsAndHashCode
+@EqualsAndHashCode(callSuper = true)
 public class Order extends BaseEntity {
   @Id @GeneratedValue private Long id;
 

@@ -7,6 +7,30 @@ plugins {
 group 'org.example'
 version '1.0-SNAPSHOT'
 
+springBoot {
+    mainClass.set('order.OrderManagementApplication')
+}
+
+tasks.named('bootJar') {
+    doFirst {
+        println "bootJar mainClass: ${mainClass.get()}"
+    }
+    mainClass.set('order.OrderManagementApplication')
+    duplicatesStrategy = DuplicatesStrategy.EXCLUDE
+}
+
+tasks.named('bootRun') {
+    doFirst {
+        println "bootRun mainClass: ${mainClass.get()}"
+    }
+    mainClass.set('order.OrderManagementApplication')
+}
+
+task wrapper(type: Wrapper) {
+    gradleVersion = '8.7'
+    validateDistributionUrl = false
+}
+
 repositories {
     mavenCentral()
 }
@@ -17,7 +41,9 @@ dependencies {
     implementation project(":restaurant-mng")
     implementation 'org.springframework.boot:spring-boot-starter-amqp:3.2.5'
 }
-
+bootBuildImage {
+    imageName = 'ivan791/order:latest'
+}
 test {
     useJUnitPlatform()
 }
