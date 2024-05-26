@@ -22,6 +22,5 @@ public class OrderMessageProducer {
       message.getMessageProperties().setDeliveryMode(MessageDeliveryMode.PERSISTENT);
       return message;
     });
-    //rabbitTemplate.convertAndSend("orderQueue", orderMessage);
   }
 }

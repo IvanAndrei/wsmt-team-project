@@ -32,12 +32,11 @@
         public void updateOrder(OrderMessage orderMessage) {
             log.info("Update order using order message");
             UpdateOrderRequestDto updateOrderRequestDto = UpdateOrderRequestDto.builder().state(OrderState.APPROVED).build();
-            log.info("Feign order client called");
-            try {
+            log.info("Feign order client called + {}", orderMessage.getId());            try {
                 Random rand = new Random();
                 int randomNumber = rand.nextInt(10) + 1;
-                if(randomNumber<5)
-                    throw new Exception("test");
+                //if(randomNumber<5)/
+                //   throw new Exception("test");
                 TimeUnit.SECONDS.sleep(10);
 
                 orderClient.updateOrder(orderMessage.getId(), updateOrderRequestDto);
@@ -49,19 +48,16 @@
                     message.getMessageProperties().setDeliveryMode(MessageDeliveryMode.PERSISTENT);
                     return message;
                 });
-                //rabbitTemplate.convertAndSend(DLX_NAME, DLQ_NAME, orderMessage);
             }
 
         }
         @Override
         public void processDLQMessage(OrderMessage orderMessage) {
             log.info("Received message from DLQ: {}", orderMessage);
-            // Process the message from the DLQ (e.g., retry processing)
             try {
-                updateOrder(orderMessage); // Retry processing the message
+                updateOrder(orderMessage);
             } catch (Exception e) {
                 log.error("Error processing message from DLQ: {}", e.getMessage());
-                // Handle the error or log it accordingly
             }
         }
     }
