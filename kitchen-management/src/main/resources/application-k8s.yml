@@ -8,8 +8,8 @@ server:
 spring:
   application:
     name: kitchen-management
-  profiles:
-    active: local
+#  profiles:
+#    active: local
   datasource:
     url: jdbc:postgresql://localhost:5432/kitchen-management
     username: postgres

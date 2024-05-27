@@ -3,7 +3,8 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/api-gateway/restaurant-management.api-gateway.main.iml" filepath="$PROJECT_DIR$/.idea/modules/api-gateway/restaurant-management.api-gateway.main.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/common/restaurant-management.common.main.iml" filepath="$PROJECT_DIR$/.idea/modules/common/restaurant-management.common.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/consumer-management/restaurant-management.consumer-management.main.iml" filepath="$PROJECT_DIR$/.idea/modules/consumer-management/restaurant-management.consumer-management.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/kitchen-management/restaurant-management.kitchen-management.main.iml" filepath="$PROJECT_DIR$/.idea/modules/kitchen-management/restaurant-management.kitchen-management.main.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/order-management/restaurant-management.order-management.main.iml" filepath="$PROJECT_DIR$/.idea/modules/order-management/restaurant-management.order-management.main.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/restaurant-mng/restaurant-management.restaurant-mng.main.iml" filepath="$PROJECT_DIR$/.idea/modules/restaurant-mng/restaurant-management.restaurant-mng.main.iml" />
     </modules>
