@@ -3,10 +3,10 @@ server:
 spring:
   application:
     name: restaurant-mng
-  profiles:
-    active: local
+#  profiles:
+#    active: local
   datasource:
-    url: jdbc:postgresql://localhost:5432/restaurant-management
+    url: jdbc:postgresql://postgres:5432/restaurant_management
     username: postgres
     password: postgres
     hikari:
