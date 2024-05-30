@@ -46,6 +46,13 @@ dependencies {
 }
 
 bootBuildImage {
+    builder = 'paketobuildpacks/builder:base'
+    environment = [
+            'BP_JVM_VERSION': '17.*'
+    ]
+}
+
+bootBuildImage {
     imageName = 'ivan791/kitchen:latest'
 }
 

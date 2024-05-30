@@ -7,12 +7,6 @@
         <processorPath useClasspath="false">
           <entry name="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.projectlombok/lombok/1.18.30/f195ee86e6c896ea47a1d39defbe20eb59cd149d/lombok-1.18.30.jar" />
         </processorPath>
-        <module name="restaurant-management.api-gateway.main" />
-        <module name="restaurant-management.consumer-management.main" />
-        <module name="restaurant-management.main" />
-        <module name="restaurant-management.kitchen-management.main" />
-        <module name="restaurant-management.restaurant-mng.main" />
-        <module name="restaurant-management.order-management.main" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel target="17" />

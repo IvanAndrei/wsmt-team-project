@@ -40,6 +40,14 @@ dependencies {
     implementation project(":restaurant-mng")
     implementation 'org.springframework.boot:spring-boot-starter-amqp:3.2.5'
 }
+
+bootBuildImage {
+    builder = 'paketobuildpacks/builder:base'
+    environment = [
+            'BP_JVM_VERSION': '17.*'
+    ]
+}
+
 bootBuildImage {
     imageName = 'ivan791/order:latest'
 }

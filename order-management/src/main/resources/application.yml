@@ -3,8 +3,8 @@ server:
 spring:
   application:
     name: order-management
-  profiles:
-    active: local
+#  profiles:
+#    active: local
   datasource:
     url: jdbc:postgresql://postgres:5432/order_management
     username: postgres
